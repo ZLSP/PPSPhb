@@ -9,7 +9,7 @@ import java.lang.RuntimeException
 object OsnovListRepositoryImpl: OsnovListRepository {
 
     private val osnovListLD = MutableLiveData<List<OsnovItem>>()
-    private val osnovList = sortedSetOf<OsnovItem>({p0,p1 -> p0.id.compareTo(p1.id)})
+    private val osnovList = sortedSetOf<OsnovItem>({ p0, p1 -> p0.id.compareTo(p1.id)})
 
     override fun getOsnovList(): LiveData<List<OsnovItem>> {
         return osnovListLD

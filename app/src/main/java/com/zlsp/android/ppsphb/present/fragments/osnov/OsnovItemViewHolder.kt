@@ -11,5 +11,4 @@ class OsnovItemViewHolder(val view: View): RecyclerView.ViewHolder(view) {
     val tvName = view.findViewById<TextView>(R.id.osnov_tv_name)
     val tvArticle = view.findViewById<TextView>(R.id.osnov_tv_article)
     val tvText = view.findViewById<TextView>(R.id.osnov_tv_text)
-    val svText = view.findViewById<ScrollView>(R.id.osnov_sv_text)
 }

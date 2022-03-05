@@ -7,14 +7,14 @@
     android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_box_osnov"
+        android:id="@+id/osnov_cl_box"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/osnov_tv_name"
-            style="@style/statiaName"
+            style="@style/pr_tv_name"
             app:layout_constraintBottom_toTopOf="@id/osnov_tv_article"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxHeight="300dp"
-        app:layout_constraintTop_toBottomOf="@id/cl_box_osnov">
+        app:layout_constraintTop_toBottomOf="@id/osnov_cl_box">
 
         <TextView
             android:id="@+id/osnov_tv_text"

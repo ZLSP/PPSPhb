@@ -18,7 +18,7 @@ class OsnovViewModel: ViewModel() {
         setOsnovListUseCase(list)
     }
 
-    fun changeActiveState(osnovItem: OsnovItem) {
+    fun changeOpenState(osnovItem: OsnovItem) {
         val newItem = osnovItem.copy(open = !osnovItem.open)
         editOsnovItemUseCase(newItem)
     }

@@ -47,7 +47,7 @@ class OsnovFragment : Fragment() {
             )
         }
         osnovListAdapter.onOsnovItemClickListener = {
-            viewModel.changeActiveState(it)
+            viewModel.changeOpenState(it)
         }
     }
 
