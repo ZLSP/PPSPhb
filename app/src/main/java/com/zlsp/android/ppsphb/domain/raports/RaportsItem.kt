@@ -1,9 +1,8 @@
-package com.zlsp.android.ppsphb.domain.osnovania
+package com.zlsp.android.ppsphb.domain.raports
 
-data class OsnovItem(
+data class RaportsItem(
     val id: Int,
     val name: String,
-    val article: String,
     val text: String,
     var open: Boolean = DEFAULT_OPEN
 ) {

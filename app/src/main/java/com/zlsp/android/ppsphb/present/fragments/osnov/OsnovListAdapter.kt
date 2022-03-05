@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.zlsp.android.ppsphb.R
-import com.zlsp.android.ppsphb.domain.osnovania.OsnovItem
+import com.zlsp.android.ppsphb.domain.osnov.OsnovItem
 
 class OsnovListAdapter: ListAdapter<OsnovItem, OsnovItemViewHolder>(OsnovItemDiffCallback()) {
 

@@ -2,7 +2,7 @@ package com.zlsp.android.ppsphb.present.fragments.osnov
 
 import androidx.lifecycle.ViewModel
 import com.zlsp.android.ppsphb.data.impls.OsnovListRepositoryImpl
-import com.zlsp.android.ppsphb.domain.osnovania.*
+import com.zlsp.android.ppsphb.domain.osnov.*
 
 class OsnovViewModel: ViewModel() {
 

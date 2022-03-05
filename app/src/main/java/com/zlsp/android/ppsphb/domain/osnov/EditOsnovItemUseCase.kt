@@ -1,4 +1,4 @@
-package com.zlsp.android.ppsphb.domain.osnovania
+package com.zlsp.android.ppsphb.domain.osnov
 
 class EditOsnovItemUseCase(private val olr: OsnovListRepository) {
 

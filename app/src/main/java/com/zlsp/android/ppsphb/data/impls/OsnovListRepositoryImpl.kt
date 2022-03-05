@@ -2,10 +2,8 @@ package com.zlsp.android.ppsphb.data.impls
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.zlsp.android.ppsphb.domain.osnovania.OsnovItem
-import com.zlsp.android.ppsphb.domain.osnovania.OsnovListRepository
-import com.zlsp.android.ppsphb.domain.zakon.ZakonItem
-import com.zlsp.android.ppsphb.domain.zakon.ZakonListRepository
+import com.zlsp.android.ppsphb.domain.osnov.OsnovItem
+import com.zlsp.android.ppsphb.domain.osnov.OsnovListRepository
 import java.lang.RuntimeException
 
 object OsnovListRepositoryImpl: OsnovListRepository {

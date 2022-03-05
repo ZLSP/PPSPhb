@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.zlsp.android.ppsphb.R
 import com.zlsp.android.ppsphb.databinding.FragmentOsnovBinding
-import com.zlsp.android.ppsphb.domain.osnovania.OsnovItem
+import com.zlsp.android.ppsphb.domain.osnov.OsnovItem
 
 class OsnovFragment : Fragment() {
     private lateinit var viewModel: OsnovViewModel
