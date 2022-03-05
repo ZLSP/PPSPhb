@@ -39,7 +39,7 @@ class ZakonFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     private fun setupZakonListRV() {
         zakonListAdapter = ZakonListAdapter()
-        with(binding.rvZakonList) {
+        with(binding.zakonRvListArticle) {
             adapter = zakonListAdapter
             recycledViewPool.setMaxRecycledViews(
                 ZakonListAdapter.VIEW_NO_ACTIVE,
@@ -59,21 +59,21 @@ class ZakonFragment : Fragment() {
         val zakonItem = ZakonItem(
             0,
             resources.getStringArray(R.array.array_zakon_article)[0],
-            resources.getStringArray(R.array.array_zakon_text_item)[0],
+            resources.getStringArray(R.array.array_zakon_text)[0],
             active = true)
         clickItemRV(zakonItem)
     }
 
     private fun clickItemRV(it: ZakonItem) {
         viewModel.changeActiveState(it)
-        binding.tvZakon1.text = "${it.header} \n \n ${it.text1}"
-        binding.tvZakon2.text = it.text2
+        binding.zakonTvText1.text = "${it.header} \n \n ${it.text1}"
+        binding.zakonTvText2.text = it.text2
     }
 
     private fun createZakonList() {
         val list = mutableListOf<ZakonItem>()
         val arrayArticle = resources.getStringArray(R.array.array_zakon_article)
-        val arrayText = resources.getStringArray(R.array.array_zakon_text_item)
+        val arrayText = resources.getStringArray(R.array.array_zakon_text)
         arrayArticle.forEachIndexed { index, article ->
             when(index) {
                 11 -> list.add(ZakonItem(index, article, arrayText[index], arrayText[58]))

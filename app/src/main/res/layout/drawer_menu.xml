@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/navigation_layout"
+    android:id="@+id/cl_drawer_menu"
     android:visibility="visible"
     android:layout_gravity="start"
     android:clickable="true"

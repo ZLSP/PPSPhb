@@ -23,7 +23,6 @@
     <include
         android:id="@+id/i_menu"
         layout="@layout/drawer_menu"
-        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/banners_block"/>
 
     <LinearLayout

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.zlsp.android.ppsphb.R
 
 class MenuItemViewHolder(val view: View): RecyclerView.ViewHolder(view) {
-    val ivIcon = view.findViewById<ImageView>(R.id.iv_icon)
-    val tvName = view.findViewById<TextView>(R.id.tv_name)
+    val ivIcon = view.findViewById<ImageView>(R.id.menu_iv_icon)
+    val tvName = view.findViewById<TextView>(R.id.menu_tv_name)
 
 }

@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/ll_red_line">
+        app:layout_constraintEnd_toStartOf="@id/zakon_ll_red_line">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,11 +20,11 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_zakon_1"
+                android:id="@+id/zakon_tv_text_1"
                 style="@style/statia"/>
 
             <TextView
-                android:id="@+id/tv_zakon_2"
+                android:id="@+id/zakon_tv_text_2"
                 style="@style/statia"/>
 
         </LinearLayout>
@@ -32,15 +32,15 @@
     </ScrollView>
 
     <LinearLayout
-        app:layout_constraintEnd_toStartOf="@id/rv_zakon_list"
+        app:layout_constraintEnd_toStartOf="@id/zakon_rv_list_article"
         android:orientation="vertical"
-        android:id="@+id/ll_red_line"
+        android:id="@+id/zakon_ll_red_line"
         android:layout_width="2dp"
         android:layout_height="match_parent"
         android:background="@color/main_red"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_zakon_list"
+        android:id="@+id/zakon_rv_list_article"
         android:layout_width="60dp"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -8,5 +8,5 @@ import com.zlsp.android.ppsphb.R
 
 class ZakonItemViewHolder(val view: View): RecyclerView.ViewHolder(view) {
     val llBox = view.findViewById<LinearLayout>(R.id.ll_box)
-    val tvArticle = view.findViewById<TextView>(R.id.tv_article)
+    val tvArticle = view.findViewById<TextView>(R.id.zakon_tv_article)
 }

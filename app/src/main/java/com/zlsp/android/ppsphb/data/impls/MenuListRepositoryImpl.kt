@@ -14,6 +14,7 @@ object MenuListRepositoryImpl: MenuListRepository {
     private val menuList = mutableListOf<MenuItem>()
 
     override fun setMenuList(list: MutableList<MenuItem>) {
+        menuList.clear()
         for (menuItem in list) {
             addMenuItem(menuItem)
         }
