@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_menu_names">
+        <item>Закон о полиции</item>
+        <item>Материал (рапорты, протоколы…)</item>
+        <item>Основания</item>
+        <item>Полномочия по составлению \n протоколов об АП</item>
+        <item>ТТХ ПМ</item>
+        <item>Что нового в ред. от 21.12.2021</item>
+    </string-array>
+</resources>

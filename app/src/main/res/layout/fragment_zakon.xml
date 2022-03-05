@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".present.fragments.zakon.ZakonFragment">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ll_red_line">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_zakon_1"
+                style="@style/statia"/>
+
+            <TextView
+                android:id="@+id/tv_zakon_2"
+                style="@style/statia"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        app:layout_constraintEnd_toStartOf="@id/rv_zakon_list"
+        android:orientation="vertical"
+        android:id="@+id/ll_red_line"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="@color/main_red"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_zakon_list"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_zakon_default"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
