@@ -12,6 +12,10 @@ import com.zlsp.android.ppsphb.R
 import com.zlsp.android.ppsphb.databinding.ActivityMainBinding
 import com.zlsp.android.ppsphb.domain.menu.MenuItem
 import com.zlsp.android.ppsphb.present.fragments.osnov.OsnovFragment
+import com.zlsp.android.ppsphb.present.fragments.polnomoch.PolnomochFragment
+import com.zlsp.android.ppsphb.present.fragments.raports.RaportsFragment
+import com.zlsp.android.ppsphb.present.fragments.redaction.RedactionFragment
+import com.zlsp.android.ppsphb.present.fragments.tth.TTHFragment
 import com.zlsp.android.ppsphb.present.fragments.zakon.ZakonFragment
 import com.zlsp.android.ppsphb.present.menu.MenuListAdapter
 
@@ -20,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
     private lateinit var binding : ActivityMainBinding
     private lateinit var menuListAdapter: MenuListAdapter
+    private var blockGoneDrawerMenu = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,11 +55,16 @@ class MainActivity : AppCompatActivity() {
             R.drawable.svg_redaction
         )
         val arrayFragments = listOf(
-            ZakonFragment.newInstance()
+            ZakonFragment.newInstance(),
+            RaportsFragment.newInstance(),
+            OsnovFragment.newInstance(),
+            PolnomochFragment.newInstance(),
+            TTHFragment.newInstance(),
+            RedactionFragment.newInstance()
         )
         val arrayNames = resources.getStringArray(R.array.array_menu_names)
         arrayNames.forEachIndexed { index, name ->
-            list.add(MenuItem(index, arrayIcons[index], name))
+            list.add(MenuItem(index, arrayIcons[index], name, arrayFragments[index]))
         }
         viewModel.setMenuList(list)
     }
@@ -63,24 +73,18 @@ class MainActivity : AppCompatActivity() {
         menuListAdapter = MenuListAdapter()
         binding.iMenu.rvMenuList.adapter = menuListAdapter
         menuListAdapter.onMenuItemClickListener = {
-            when(it.id) {
-                0 -> {
-                    launchFragment(ZakonFragment.newInstance())
-                }
-                2 -> {
-                    launchFragment(OsnovFragment.newInstance())
-                }
-            }
+            launchFragment(it.fragment)
         }
     }
 
     private fun launchFragment(fragment: Fragment) {
-        binding.iMenu.clDrawerMenu.visibility = GONE
         supportFragmentManager.popBackStack()
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .addToBackStack(null)
             .commit()
+
+        setVisibleDrawerMenu(GONE)
     }
 
     private fun showAlertDialog() {
@@ -95,10 +99,19 @@ class MainActivity : AppCompatActivity() {
         }.show()
     }
 
+    private fun setVisibleDrawerMenu(type: Int) {
+        if (!blockGoneDrawerMenu)
+            binding.iMenu.clDrawerMenu.visibility = type
+        else {
+            binding.iMenu.clDrawerMenu.visibility = VISIBLE
+            blockGoneDrawerMenu = false
+        }
+    }
+
     override fun onBackPressed() {
-        if (binding.iMenu.clDrawerMenu.visibility == GONE)
+        if (binding.iMenu.clDrawerMenu.visibility == VISIBLE)
             showAlertDialog()
         else
-            binding.iMenu.clDrawerMenu.visibility = GONE
+            setVisibleDrawerMenu(VISIBLE)
     }
 }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "658356254995",
+    "project_id": "ppsphandbook",
+    "storage_bucket": "ppsphandbook.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658356254995:android:7bbb313e0d3b7dbe25c2e6",
+        "android_client_info": {
+          "package_name": "com.zlsp.android.ppsphb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "658356254995-ti42nbfn1v1krhnlj6t9gvju5i8cg6qq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRFNovCOPMEKtxu06SX7A0UzXqQk4Oq7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "658356254995-ti42nbfn1v1krhnlj6t9gvju5i8cg6qq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -28,22 +28,6 @@ object RaportsListRepositoryImpl: RaportsListRepository {
         updateList()
     }
 
-    override fun editRaportsItem(raportsItem: RaportsItem) {
-//        for (item in RaportsList) {
-//            if (item != RaportsItem)
-//                item.open = false
-//        }
-        val oldElement = getRaportsItem(raportsItem.id)
-        deleteRaportsItem(oldElement)
-        addRaportsItem(raportsItem)
-        updateList()
-    }
-
-    override fun deleteRaportsItem(raportsItem: RaportsItem) {
-        raportsList.remove(raportsItem)
-        updateList()
-    }
-
     override fun addRaportsItem(raportsItem: RaportsItem) {
         raportsList.add(raportsItem)
         updateList()
