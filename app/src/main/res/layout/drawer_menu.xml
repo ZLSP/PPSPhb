@@ -47,7 +47,7 @@
                 app:layout_constraintBottom_toTopOf="@id/tv_header_menu_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ППСП"
+                android:text="@string/drawer_h1"
                 android:textSize="29sp"
                 android:textAlignment="center"
                 android:textColor="@color/white" />
@@ -60,7 +60,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="справочник"
+                android:text="@string/drawer_h2"
                 android:textAlignment="center"
                 android:textColor="@color/white" />
 
@@ -95,7 +95,7 @@
             android:layout_height="20dp"
             android:layout_gravity="center_horizontal"
             android:layout_margin="12sp"
-            android:text="Developed by ZLSP"
+            android:text="@string/developer"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textStyle="bold" />

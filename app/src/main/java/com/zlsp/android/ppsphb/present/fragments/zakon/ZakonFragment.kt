@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.zlsp.android.ppsphb.R
+import com.zlsp.android.ppsphb.data.ads.YandexAds
+import com.zlsp.android.ppsphb.data.singleton.Preferences
 import com.zlsp.android.ppsphb.databinding.FragmentZakonBinding
 import com.zlsp.android.ppsphb.domain.zakon.ZakonItem
 
@@ -51,6 +53,8 @@ class ZakonFragment : Fragment() {
             )
         }
         zakonListAdapter.onZakonItemClickListener = {
+            if (Preferences.clickCounter())
+                YandexAds.showInterstitial()
             clickItemRV(it)
         }
     }

@@ -9,6 +9,9 @@ import android.view.View.VISIBLE
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.zlsp.android.ppsphb.R
+import com.zlsp.android.ppsphb.data.ads.YandexAds
+import com.zlsp.android.ppsphb.data.singleton.FBAnalytics
+import com.zlsp.android.ppsphb.data.singleton.Preferences
 import com.zlsp.android.ppsphb.databinding.ActivityMainBinding
 import com.zlsp.android.ppsphb.domain.menu.MenuItem
 import com.zlsp.android.ppsphb.present.fragments.osnov.OsnovFragment
@@ -30,6 +33,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        YandexAds.initYandexAd(this, binding.bannerYandex)
+        Preferences.initSharedPreferences(this)
+        FBAnalytics.initFirebase()
         setupMenuListRV()
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         createMenuList()
@@ -90,11 +96,11 @@ class MainActivity : AppCompatActivity() {
     private fun showAlertDialog() {
         val alertDialog = AlertDialog.Builder(this)
         alertDialog.apply {
-            setTitle("Закрыть приложение")
-            setPositiveButton("Да") { _, i ->
+            setTitle(resources.getString(R.string.dialog_exit_tittle))
+            setPositiveButton(resources.getString(R.string.dialog_exit_yes)) { _, i ->
                 finishAffinity()
             }
-            setNegativeButton("Нет") {_, i ->
+            setNegativeButton(resources.getString(R.string.dialog_exit_no)) {_, i ->
             }
         }.show()
     }

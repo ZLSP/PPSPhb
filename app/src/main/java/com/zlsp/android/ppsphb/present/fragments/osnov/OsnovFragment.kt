@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.zlsp.android.ppsphb.R
+import com.zlsp.android.ppsphb.data.ads.YandexAds
+import com.zlsp.android.ppsphb.data.singleton.Preferences
 import com.zlsp.android.ppsphb.databinding.FragmentOsnovBinding
 import com.zlsp.android.ppsphb.domain.osnov.OsnovItem
 
@@ -47,6 +49,8 @@ class OsnovFragment : Fragment() {
             )
         }
         osnovListAdapter.onOsnovItemClickListener = {
+            if (Preferences.clickCounter())
+                YandexAds.showInterstitial()
             viewModel.changeOpenState(it)
         }
     }

@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.zlsp.android.ppsphb.R
+import com.zlsp.android.ppsphb.data.ads.YandexAds
+import com.zlsp.android.ppsphb.data.singleton.Preferences
 import com.zlsp.android.ppsphb.databinding.FragmentRedactionBinding
 import com.zlsp.android.ppsphb.domain.polnomoch.PolnomochItem
 import com.zlsp.android.ppsphb.domain.redaction.RedactionItem
@@ -49,6 +51,8 @@ class RedactionFragment : Fragment() {
             )
         }
         redactionListAdapter.onRedactionItemClickListener = {
+            if (Preferences.clickCounter())
+                YandexAds.showInterstitial()
             viewModel.changeOpenState(it)
         }
     }

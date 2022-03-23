@@ -11,8 +11,8 @@ android {
         applicationId "com.zlsp.android.ppsphb"
         minSdk 21
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "1.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -50,6 +50,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-core:20.1.0'
     implementation 'com.google.gms:google-services:4.3.10'
+
+    //Yandex
+    implementation 'com.yandex.android:mobileads:5.0.0-alpha.2'
+    implementation 'com.yandex.android:mobmetricalib:4.1.1'
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'

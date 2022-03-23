@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">ППСП справочник</string>
-    <string name="warning_raports">ВНИМАНИЕ!\nСсылки на скачивания начинают работать спустя 10–15 секунд после открытия этой вкладки!</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">ППСП Справочник</string>
+    <string name="dialog_exit_tittle">Закрыть приложение?</string>
+    <string name="dialog_exit_yes">да</string>
+    <string name="dialog_exit_no">нет</string>
+    <string name="drawer_h1">ППСП</string>
+    <string name="drawer_h2">справочник</string>
+    <string name="developer">Developed by ZLSP</string>
 </resources>
