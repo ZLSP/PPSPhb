@@ -1,7 +1,6 @@
 package com.zlsp.android.ppsphb.present
 
 import android.app.AlertDialog
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View.GONE
@@ -9,9 +8,6 @@ import android.view.View.VISIBLE
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.zlsp.android.ppsphb.R
-import com.zlsp.android.ppsphb.data.ads.YandexAds
-import com.zlsp.android.ppsphb.data.singleton.FBAnalytics
-import com.zlsp.android.ppsphb.data.singleton.Preferences
 import com.zlsp.android.ppsphb.databinding.ActivityMainBinding
 import com.zlsp.android.ppsphb.domain.menu.MenuItem
 import com.zlsp.android.ppsphb.present.fragments.osnov.OsnovFragment
@@ -33,11 +29,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        YandexAds.initYandexAd(this, binding.bannerYandex)
-        Preferences.initSharedPreferences(this)
-        FBAnalytics.initFirebase()
+        //YandexAds.initYandexAd(this, binding.bannerYandex)
         setupMenuListRV()
-        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        initializations()
         createMenuList()
         viewModel.menuList.observe(this) {
             menuListAdapter.submitList(it)
@@ -48,6 +42,13 @@ class MainActivity : AppCompatActivity() {
             println("click")
             binding.iMenu.clDrawerMenu.visibility = VISIBLE
         }
+    }
+
+    private fun initializations() {
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        viewModel.initYandexAd(this, binding.bannerYandex)
+        viewModel.initPref(this)
+        viewModel.initFB()
     }
 
     private fun createMenuList() {

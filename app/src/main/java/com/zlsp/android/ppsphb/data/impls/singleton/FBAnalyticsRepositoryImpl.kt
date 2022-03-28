@@ -1,20 +1,23 @@
-package com.zlsp.android.ppsphb.data.singleton
+package com.zlsp.android.ppsphb.data.impls.singleton
 
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.analytics.ktx.logEvent
 import com.google.firebase.ktx.Firebase
+import com.zlsp.android.ppsphb.domain.fb.FBAnalyticsRepository
 
-object FBAnalytics {
+
+object FBAnalyticsRepositoryImpl: FBAnalyticsRepository {
 
     private lateinit var firebaseAnalytics: FirebaseAnalytics
 
-    fun initFirebase() {
+    override fun initFB() {
         firebaseAnalytics = Firebase.analytics
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.APP_OPEN) {}
     }
 
-    fun firebaseLog(log: String) {
+    override fun fbLog(log: String) {
         firebaseAnalytics.logEvent(log) {}
     }
+
 }

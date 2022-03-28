@@ -9,12 +9,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.ktx.Firebase
 import com.yandex.mobile.ads.common.AdRequestError
 import com.yandex.mobile.ads.common.ImpressionData
 import com.yandex.mobile.ads.rewarded.Reward
@@ -22,7 +20,7 @@ import com.yandex.mobile.ads.rewarded.RewardedAd
 import com.yandex.mobile.ads.rewarded.RewardedAdEventListener
 import com.zlsp.android.ppsphb.R
 import com.zlsp.android.ppsphb.data.ads.YandexAds
-import com.zlsp.android.ppsphb.data.singleton.FBAnalytics
+import com.zlsp.android.ppsphb.data.impls.singleton.FBAnalyticsRepositoryImpl
 import com.zlsp.android.ppsphb.databinding.FragmentRaportsBinding
 import com.zlsp.android.ppsphb.domain.raports.RaportsItem
 
@@ -60,7 +58,7 @@ class RaportsFragment : Fragment() {
         raportsListAdapter.onRaportsItemClickListener = {
             if (binding.wvDownload.visibility == GONE) {
                 initRewarded(it.link)
-                FBAnalytics.firebaseLog(FB_LOG)
+                FBAnalyticsRepositoryImpl.fbLog(FB_LOG)
             }
         }
     }

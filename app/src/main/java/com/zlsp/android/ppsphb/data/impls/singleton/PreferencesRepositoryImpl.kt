@@ -1,21 +1,22 @@
-package com.zlsp.android.ppsphb.data.singleton
+package com.zlsp.android.ppsphb.data.impls.singleton
 
 import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
+import com.zlsp.android.ppsphb.domain.pref.PreferencesRepository
 
-object Preferences {
+object PreferencesRepositoryImpl: PreferencesRepository {
     private const val TAG_CLICK_COUNTER = "CLICK_COUNTER"
     private lateinit var sharedPreferences : SharedPreferences
 
-    fun initSharedPreferences(activity: Activity) {
+    override fun initPref(activity: Activity) {
         sharedPreferences = activity.getSharedPreferences(
             "sharedPrefs",
             Context.MODE_PRIVATE
         )
     }
 
-    fun clickCounter(): Boolean {
+    override fun clickCounter(): Boolean {
         var show = false
         val count = sharedPreferences.getInt(TAG_CLICK_COUNTER, 0)
         if (count > 5) {

@@ -12,7 +12,7 @@ import com.zlsp.android.ppsphb.databinding.FragmentZakonBinding
 
 class TTHFragment : Fragment() {
 
-    lateinit var binding: FragmentTthBinding
+    private lateinit var binding: FragmentTthBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
