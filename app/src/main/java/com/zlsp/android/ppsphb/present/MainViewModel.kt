@@ -3,11 +3,15 @@ package com.zlsp.android.ppsphb.present
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.yandex.mobile.ads.banner.BannerAdView
-import com.zlsp.android.ppsphb.data.impls.lists.MenuListRepositoryImpl
-import com.zlsp.android.ppsphb.data.impls.singleton.FBAnalyticsRepositoryImpl
-import com.zlsp.android.ppsphb.data.impls.singleton.PreferencesRepositoryImpl
-import com.zlsp.android.ppsphb.data.impls.singleton.YandexAdsRepositoryImpl
+import com.zlsp.android.ppsphb.data.impls.MenuListRepositoryImpl
+import com.zlsp.android.ppsphb.data.tools.FBAnalyticsRepositoryImpl
+import com.zlsp.android.ppsphb.data.tools.PreferencesRepositoryImpl
+import com.zlsp.android.ppsphb.data.ads.YandexAdsRepositoryImpl
+import com.zlsp.android.ppsphb.domain.fb.FBAnalyticsInitUseCase
 import com.zlsp.android.ppsphb.domain.menu.*
+import com.zlsp.android.ppsphb.domain.pref.PreferencesInitUseCase
+import com.zlsp.android.ppsphb.domain.yandex.YandexAdsInitBunnerUseCase
+import com.zlsp.android.ppsphb.domain.yandex.YandexAdsInitUseCase
 
 class MainViewModel: ViewModel() {
 
@@ -20,6 +24,13 @@ class MainViewModel: ViewModel() {
     private val getMenuListUseCase = GetMenuListUseCase(repository)
     private val getMenuItemFragmentUseCase = GetMenuItemFragmentUseCase(repository)
 
+    private val preferencesInitUseCase = PreferencesInitUseCase(repositoryPref)
+
+    private val fbAnalyticsInitUseCase = FBAnalyticsInitUseCase(repositoryFB)
+
+    private val yandexAdsInitBunnerUseCase = YandexAdsInitBunnerUseCase(repositoryYandex)
+    private val yandexAdsInitUseCase = YandexAdsInitUseCase(repositoryYandex)
+
     val menuList = getMenuListUseCase()
 
     fun setMenuList(list: MutableList<MenuItem>) {
@@ -27,17 +38,16 @@ class MainViewModel: ViewModel() {
     }
 
     fun initPref(activity: MainActivity) {
-        repositoryPref.initPref(activity)
+        preferencesInitUseCase(activity)
     }
 
     fun initFB() {
-        repositoryFB.initFB()
+        fbAnalyticsInitUseCase()
     }
 
     fun initYandexAd(ctx: Context, banner: BannerAdView) {
-        repositoryYandex.initYandex(ctx)
-        repositoryYandex.initInterstitial(ctx)
-        repositoryYandex.initBanner(banner)
+        yandexAdsInitBunnerUseCase(banner)
+        yandexAdsInitUseCase(ctx)
     }
 
 }

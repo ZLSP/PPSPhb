@@ -1,10 +1,13 @@
 package com.zlsp.android.ppsphb.present.fragments.zakon
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
-import com.zlsp.android.ppsphb.data.impls.lists.ZakonListRepositoryImpl
-import com.zlsp.android.ppsphb.data.impls.singleton.FBAnalyticsRepositoryImpl
-import com.zlsp.android.ppsphb.data.impls.singleton.PreferencesRepositoryImpl
-import com.zlsp.android.ppsphb.data.impls.singleton.YandexAdsRepositoryImpl
+import com.zlsp.android.ppsphb.data.impls.ZakonListRepositoryImpl
+import com.zlsp.android.ppsphb.data.tools.FBAnalyticsRepositoryImpl
+import com.zlsp.android.ppsphb.data.tools.PreferencesRepositoryImpl
+import com.zlsp.android.ppsphb.data.ads.YandexAdsRepositoryImpl
+import com.zlsp.android.ppsphb.domain.pref.PreferencesClickCounterUseCase
+import com.zlsp.android.ppsphb.domain.yandex.YandexAdsShowInterstitialUseCase
 import com.zlsp.android.ppsphb.domain.zakon.*
 
 class ZakonViewModel: ViewModel() {
@@ -20,6 +23,9 @@ class ZakonViewModel: ViewModel() {
     private val editZakonItemUseCase = EditZakonItemUseCase(repository)
     private val setZakonListUseCase = SetZakonListUseCase(repository)
 
+    private val yandexAdsShowInterstitialUseCase = YandexAdsShowInterstitialUseCase(repositoryYandex)
+    private val preferencesClickCounterUseCase = PreferencesClickCounterUseCase(repositoryPref)
+
     val zakonList = getZakonListUseCase()
 
     fun setZakonList(list: MutableList<ZakonItem>) {
@@ -31,10 +37,12 @@ class ZakonViewModel: ViewModel() {
         editZakonItemUseCase(newItem)
     }
     fun clickCounter(): Boolean {
-        return repositoryPref.clickCounter()
+        return preferencesClickCounterUseCase()
     }
-    fun showInterstitial() {
-        repositoryYandex.showInterstitial()
+
+    fun showInterstitial(ctx: Context) {
+        yandexAdsShowInterstitialUseCase(ctx)
     }
+
 
 }

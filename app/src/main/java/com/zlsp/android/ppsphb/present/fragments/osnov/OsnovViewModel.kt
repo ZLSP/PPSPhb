@@ -1,12 +1,13 @@
 package com.zlsp.android.ppsphb.present.fragments.osnov
 
-import android.app.Activity
+import android.content.Context
 import androidx.lifecycle.ViewModel
-import com.zlsp.android.ppsphb.data.impls.lists.OsnovListRepositoryImpl
-import com.zlsp.android.ppsphb.data.impls.singleton.FBAnalyticsRepositoryImpl
-import com.zlsp.android.ppsphb.data.impls.singleton.PreferencesRepositoryImpl
-import com.zlsp.android.ppsphb.data.impls.singleton.YandexAdsRepositoryImpl
+import com.zlsp.android.ppsphb.data.impls.OsnovListRepositoryImpl
+import com.zlsp.android.ppsphb.data.tools.FBAnalyticsRepositoryImpl
+import com.zlsp.android.ppsphb.data.tools.PreferencesRepositoryImpl
+import com.zlsp.android.ppsphb.data.ads.YandexAdsRepositoryImpl
 import com.zlsp.android.ppsphb.domain.osnov.*
+import com.zlsp.android.ppsphb.domain.pref.PreferencesClickCounterUseCase
 import com.zlsp.android.ppsphb.domain.yandex.YandexAdsShowInterstitialUseCase
 
 class OsnovViewModel: ViewModel() {
@@ -21,6 +22,7 @@ class OsnovViewModel: ViewModel() {
     private val setOsnovListUseCase = SetOsnovListUseCase(repository)
 
     private val yandexAdsShowInterstitialUseCase = YandexAdsShowInterstitialUseCase(repositoryYandex)
+    private val preferencesClickCounterUseCase = PreferencesClickCounterUseCase(repositoryPref)
 
     val osnovList = getOsnovListUseCase()
 
@@ -34,11 +36,11 @@ class OsnovViewModel: ViewModel() {
     }
 
     fun clickCounter(): Boolean {
-        return repositoryPref.clickCounter()
+        return preferencesClickCounterUseCase()
     }
 
-    fun showInterstitial() {
-        yandexAdsShowInterstitialUseCase()
+    fun showInterstitial(ctx: Context) {
+        yandexAdsShowInterstitialUseCase(ctx)
     }
 
 }

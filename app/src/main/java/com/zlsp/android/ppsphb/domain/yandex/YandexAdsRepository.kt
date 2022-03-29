@@ -8,9 +8,7 @@ interface YandexAdsRepository {
 
     fun initYandex(ctx: Context)
     fun initBanner(banner: BannerAdView)
-    fun initInterstitial(ctx: Context)
-    fun interstitialListener(interstitialAd: InterstitialAd)
     fun bannerListener(banner: BannerAdView)
-    fun showInterstitial()
+    fun showInterstitial(ctx: Context)
     fun showRewarded(ctx: Context, openLink: ()-> Unit)
 }

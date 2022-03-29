@@ -1,11 +1,14 @@
 package com.zlsp.android.ppsphb.present.fragments.redaction
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
-import com.zlsp.android.ppsphb.data.impls.lists.RedactionListRepositoryImpl
-import com.zlsp.android.ppsphb.data.impls.singleton.FBAnalyticsRepositoryImpl
-import com.zlsp.android.ppsphb.data.impls.singleton.PreferencesRepositoryImpl
-import com.zlsp.android.ppsphb.data.impls.singleton.YandexAdsRepositoryImpl
+import com.zlsp.android.ppsphb.data.impls.RedactionListRepositoryImpl
+import com.zlsp.android.ppsphb.data.tools.FBAnalyticsRepositoryImpl
+import com.zlsp.android.ppsphb.data.tools.PreferencesRepositoryImpl
+import com.zlsp.android.ppsphb.data.ads.YandexAdsRepositoryImpl
+import com.zlsp.android.ppsphb.domain.pref.PreferencesClickCounterUseCase
 import com.zlsp.android.ppsphb.domain.redaction.*
+import com.zlsp.android.ppsphb.domain.yandex.YandexAdsShowInterstitialUseCase
 
 class RedactionViewModel: ViewModel() {
 
@@ -18,6 +21,9 @@ class RedactionViewModel: ViewModel() {
     private val editRedactionItemUseCase = EditRedactionItemUseCase(repository)
     private val setRedactionListUseCase = SetRedactionListUseCase(repository)
 
+    private val yandexAdsShowInterstitialUseCase = YandexAdsShowInterstitialUseCase(repositoryYandex)
+    private val preferencesClickCounterUseCase = PreferencesClickCounterUseCase(repositoryPref)
+
     val redactionList = getRedactionListUseCase()
 
     fun setRedactionList(list: MutableList<RedactionItem>) {
@@ -29,10 +35,11 @@ class RedactionViewModel: ViewModel() {
         editRedactionItemUseCase(newItem)
     }
     fun clickCounter(): Boolean {
-        return repositoryPref.clickCounter()
+        return preferencesClickCounterUseCase()
     }
-    fun showInterstitial() {
-        repositoryYandex.showInterstitial()
+
+    fun showInterstitial(ctx: Context) {
+        yandexAdsShowInterstitialUseCase(ctx)
     }
 
 }

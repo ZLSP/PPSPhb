@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.zlsp.android.ppsphb.R
-import com.zlsp.android.ppsphb.data.ads.YandexAds
 import com.zlsp.android.ppsphb.databinding.FragmentPolnomochBinding
 import com.zlsp.android.ppsphb.domain.polnomoch.PolnomochItem
 
@@ -50,7 +49,7 @@ class PolnomochFragment : Fragment() {
         }
         polnomochListAdapter.onPolnomochItemClickListener = {
             viewModel.apply {
-                if (clickCounter()) showInterstitial()
+                if (clickCounter()) showInterstitial(requireContext())
                 changeOpenState(it)
             }
         }

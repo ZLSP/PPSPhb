@@ -48,7 +48,7 @@ class OsnovFragment : Fragment() {
         }
         osnovListAdapter.onOsnovItemClickListener = {
             viewModel.apply {
-                if (clickCounter()) showInterstitial()
+                if (clickCounter()) showInterstitial(requireContext())
                 changeOpenState(it)
             }
         }
